@@ -1,0 +1,44 @@
+<!--
+ * @Author: your name
+ * @Date: 2021-06-12 17:53:58
+ * @LastEditTime: 2021-06-12 18:03:10
+ * @LastEditors: Please set LastEditors
+ * @Description: In User Settings Edit
+ * @FilePath: \day1\03v-bind的使用\v-bind动态绑定class(对象语法).html
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .active{
+            color: red;
+        }
+    </style>
+</head>
+<body>
+    <div id="app">
+        <h2 v-bind:class="{active:isActive}">{{message}}</h2>
+       <button v-on:click="btnClick">按钮</button>
+    </div>
+    <script src="../js/vue.js"></script>
+    <script>
+        const app=new Vue({
+            el:"#app",
+            data:{
+                isActive:true,
+                message:'您好'
+            },
+            methods: {
+                btnClick(){
+                    return this.isActive=!this.isActive
+                }
+            }
+            
+        })
+    </script>
+</body>
+</html>

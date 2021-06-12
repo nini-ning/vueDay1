@@ -1,0 +1,46 @@
+<!--
+ * @Author: your name
+ * @Date: 2021-06-12 18:11:58
+ * @LastEditTime: 2021-06-12 21:30:16
+ * @LastEditors: Please set LastEditors
+ * @Description: In User Settings Edit
+ * @FilePath: \day1\03v-bind的使用\点击哪一项哪一项变成红色.html
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .active{
+            color: red;
+        }
+    </style>
+</head>
+<body>
+    <div id="app">
+        <ul>
+            <li v-for="(item,index) in movies" v-bind:class="{active:currentIndex===index}" @click="btnClick(index)">{{index}}-{{item}}</li>
+        </ul>
+    </div>
+    <script src="../js/vue.js"></script>
+    <script>
+        //点击列表中的那一项变成红色
+        const app=new Vue({
+            el:'#app',
+            data:{
+                currentIndex:-1,
+                movies: ['海王', '海尔兄弟', '火影忍者', '进击的巨人']
+            },
+            methods:{
+                btnClick(index){
+                   this.currentIndex=index
+                    
+                }
+            }
+        })
+    </script>
+</body>
+</html>

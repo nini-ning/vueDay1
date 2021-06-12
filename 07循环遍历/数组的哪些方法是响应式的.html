@@ -1,0 +1,50 @@
+<!--
+ * @Author: your name
+ * @Date: 2021-06-12 23:10:06
+ * @LastEditTime: 2021-06-12 23:32:22
+ * @LastEditors: Please set LastEditors
+ * @Description: In User Settings Edit
+ * @FilePath: \day1\07循环遍历\数组的哪些方法是响应式的.html
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="app">
+        <ul>
+            <li v-for="item in letters">{{item}}</li>
+        </ul>
+        <button @click="btnClick">按钮</button>
+    </div>
+    <script src="../js/vue.js"></script>
+    <script>
+        const app=new Vue({
+            el:'#app',
+            data:{
+                letters: ['a', 'b', 'c', 'd']
+            },
+            methods: {
+                btnClick(){
+                    //1.push:元素末尾添加一个元素，pop():删除数组中的最后一个元素,shift(): 删除数组中的第一个元素
+                    //this.letters.push('aaa')
+                    //this.letters.pop()
+                    //this.letters.shift()
+                    //unshift在数组最前面添加元素,.sort()冒泡 .resolve()反转
+                    //this.letters.unshift('eee','fff','ggg')
+                    //splice 删除元素/插入元素/替换元素,第二个参数为0表示插入元素，删除和替换元素也是第二个参数表示要替换几个
+                    //this.letters.splice(1,1,'e','g');
+                    //this.letters.splice(1,2,'e','g','f');
+                    //this.letters.splice(1,0,'e','g','f');
+                    //通过索引值也可以修改数组中的元素
+                    Vue.set(this.letters,3,'ggg')
+                }
+            }
+        })
+    </script>
+</body>
+</html>

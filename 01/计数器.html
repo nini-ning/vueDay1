@@ -1,0 +1,48 @@
+<!--
+ * @Author: your name
+ * @Date: 2021-06-12 16:46:35
+ * @LastEditTime: 2021-06-12 17:08:24
+ * @LastEditors: Please set LastEditors
+ * @Description: In User Settings Edit
+ * @FilePath: \day1\01\计数器.html
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="app">
+        <h2>当前计数:{{counter}}</h2>
+        <button v-on:click="add">+</button>
+        <button v-on:click="sub">-</button>
+    </div>
+    <script src="../js/vue.js"></script>
+    <script>
+        
+        const app=new Vue({ 
+            el:"#app",
+            data:function(){
+                return{
+                    counter:0
+                }
+            },
+                
+            methods: {
+                add:function(){
+                    this.counter++;
+                    console.log("++")
+                },
+                sub:function(){
+                    this.counter--;
+                    console.log("--")
+                }
+            }}
+        )
+        
+    </script>
+</body>
+</html>
