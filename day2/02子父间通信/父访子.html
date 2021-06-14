@@ -1,0 +1,67 @@
+<!--
+ * @Author: your name
+ * @Date: 2021-06-14 10:30:52
+ * @LastEditTime: 2021-06-14 10:50:50
+ * @LastEditors: Please set LastEditors
+ * @Description: In User Settings Edit
+ * @FilePath: \day2\02\父访子.html
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="app">
+        <cnp></cnp>
+        <cnp ref="aa"></cnp>
+        <cnp></cnp>
+        <button @click=btnClick>按钮</button>
+    </div>
+    <template id="cnp">
+        
+    </template>
+    <script>
+        const cnp={
+            template:'#cnp',
+            data(){
+                return{
+                    name:'我是子组件宁宁',
+                    age:18
+                }
+            },
+            methods: {
+            showMessage() {
+            console.log('showMessage');
+          }
+        }
+    }
+    </script>
+    <script src="../js/vue.js"></script>
+    <script>
+        const app=new Vue({
+            el:'#app',
+            components: {
+              cnp  
+            },
+            data:{
+                message:'您好'
+            },
+            methods: {
+                btnClick(){
+                    console.log("我是父组件")
+                    //console.log(this.$children)
+                    // for(let c of this.$children){
+                    //     console.log(c.name)
+                    //     c.showMessage()
+                    // }
+                    console.log(this.$refs.aa.name)
+                }
+            }
+        })
+    </script>
+</body>
+</html>
