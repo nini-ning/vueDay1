@@ -1,0 +1,49 @@
+<!--
+ * @Author: your name
+ * @Date: 2021-06-13 12:05:09
+ * @LastEditTime: 2021-06-13 12:37:00
+ * @LastEditors: Please set LastEditors
+ * @Description: In User Settings Edit
+ * @FilePath: \day2\01\v-model结合checkBox.html
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="app">
+        <!-- checkbox单选框 -->
+        <!-- <label for="agreen">
+            <input type="checkbox" id="agreen" v-model="isAgreen">同意协议
+            <button :disabled="!isAgreen">下一步</button>
+        </label>
+        <h2>您选择的是:{{isAgreen}}</h2> -->
+         <!-- checkbox多选框 -->
+         <!-- <input type="checkbox" value="足球" v-model="hobbies">足球
+         <input type="checkbox" value="篮球" v-model="hobbies">足球
+         <input type="checkbox" value="排球" v-model="hobbies">排球
+         <input type="checkbox" value="羽毛球"v-model="hobbies">羽毛球
+         <h2>您的爱好是:{{hobbies}}</h2> -->
+         <label v-for="item in love" :for="item">
+            <input type="checkbox" :value="item" :id="item" v-model="hobbies"><h2>{{item}}</h2>
+           
+         </label>
+         <h2>您的爱好是:{{hobbies}}</h2> 
+    </div>
+    <script src="../js/vue.js"></script>
+    <script>
+        const app=new Vue({
+            el:'#app',
+            data:{
+                isAgreen:false,
+                hobbies:[],
+                love:['苹果','橘子','香蕉','桃子']
+            }
+        })
+    </script>
+</body>
+</html>
